@@ -6,6 +6,8 @@ const forecast=require('./utiles/forecast')
 
 const app=express()
 
+const port=process.env.PORT||3000
+
 const partialPath=path.join(__dirname,'../templates/partials')
 
 app.set('view engine','hbs')
@@ -95,6 +97,6 @@ app.get('*',(req,res)=>{
         name:'Ziad Ahmed'
     })
 })
-app.listen(3000,()=>{
-    console.log('Server is up on port 3000');
+app.listen(port,()=>{
+    console.log('Server is up on port '+port);
 })
