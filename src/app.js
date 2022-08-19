@@ -48,16 +48,15 @@ app.get('/weather',(req,res)=>{
         if(!req.query.address){
             return res.send('there is no location provided');
         }
-        forecast(latitude,longitude,(error,{temp,weatherDescription})=>{
+        forecast(latitude,longitude,(error,forecastData)=>{
             if(error){
                 return res.send({error});
             }
             res.send({
-                latitude:latitude,
-                location:req.query.address,
-                place:place,
-                temp:temp,
-                weatherDescription:weatherDescription
+                place,
+                forecast:forecastData,
+                address: req.query.address
+
             })            
            
         })
